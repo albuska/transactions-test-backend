@@ -1,7 +1,8 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
-const usersDB = new sqlite3.Database(path.resolve(__dirname, "users.db"));
+const dbUserPath = path.resolve(__dirname, "users.db");
+const usersDB = new sqlite3.Database(dbUserPath);
 usersDB.serialize(() => {
   usersDB.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,9 +12,8 @@ usersDB.serialize(() => {
   )`);
 });
 
-const transactionsDB = new sqlite3.Database(
-  path.resolve(__dirname, "transactions.db")
-);
+const dbTransactionPath = path.resolve(__dirname, "transactions.db");
+const transactionsDB = new sqlite3.Database(dbTransactionPath);
 transactionsDB.serialize(() => {
   transactionsDB.run(`CREATE TABLE IF NOT EXISTS transactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
