@@ -4,9 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon server.js",
-    "lint": "eslint **/*.js",
-    "lint:fix": "eslint --fix **/*.js"
+    "start:dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
